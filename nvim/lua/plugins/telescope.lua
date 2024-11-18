@@ -137,6 +137,7 @@ return {
 		})
 
 		require("telescope").load_extension("luasnip")
+		require("telescope").load_extension("mypro")
 
 		local keys = vim.keymap
 		keys.set("n", "<leader>ff", builtin.find_files, {})

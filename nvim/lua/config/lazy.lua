@@ -1,4 +1,5 @@
 -- Bootstrap lazy.nvim
+-- 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -56,8 +57,8 @@ vim.opt.encoding="UTF-8"
 vim.opt.inccommand="split"
 vim.opt.swapfile = false
 vim.opt.autoindent=true
-vim.opt.tabstop=2
-vim.opt.shiftwidth=2
+vim.opt.tabstop=4
+vim.opt.shiftwidth=4
 vim.opt.pumheight = 10
 vim.keymap.set(
 	't',

@@ -11,7 +11,7 @@ return {
 			require("CopilotChat").setup({
 				debug = false, -- Enable debugging
 				window = {
-					layout = "horizontal", -- 'vertical', 'horizontal', 'float', 'replace'
+					layout = "vertical", -- 'vertical', 'horizontal', 'float', 'replace'
 					width = 0.3,
 					height = 0.5,
 				},

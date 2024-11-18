@@ -1,4 +1,3 @@
-
 local header = {
 "",
 ".------------------------------------------------------------------------.",
@@ -30,24 +29,32 @@ return {
 				header = header,
 				center = {
 					{
-						icon ='🐒 ',
+						icon ='󰈙  ',
 						desc = 'Reload Last Session',
 						key = 'a',
 						key_format = ' [%s]',
 						action = 'require("persistence").load()',
 					},
 					{
-						icon = '󰈙  ',
-						desc = 'Blog',
-						key = 'b',
-						key_format = ' [%s]',
-						action = ':Oil /Users/kyungsubkim/Programming/blog/',
+						icon = '  ',
+						desc = 'Update Plugins',
+						key = 'u',
+						key_format= ' [%s]',
+						action = 'Lazy update',
 					},
+					{
+						icon = '  ',
+						desc = 'Search Projects',
+						key = 'v',
+						key_format = ' [%s]',
+						action = 'Telescope mypro',
+					}
 				},
 				footer = {
 				}
 			},
     }
+
 		vim.api.nvim_set_hl(
 			0,
 			'DashboardHeader',

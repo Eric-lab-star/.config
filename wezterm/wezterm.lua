@@ -31,9 +31,9 @@ config.background = {
 	},
 }
 
-config.font_size = 12.5
+config.font_size = 15.0
 config.font = wezterm.font({
-	family = "JetBrains Mono",
+	family = "D2Coding",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 })
 
@@ -126,5 +126,4 @@ config.key_tables = {
 		{ key = "Escape", action = "PopKeyTable" },
 	},
 }
-
 return config
