@@ -12,7 +12,7 @@ return {
 				debug = false, -- Enable debugging
 				window = {
 					layout = "vertical", -- 'vertical', 'horizontal', 'float', 'replace'
-					width = 0.3,
+					width = 0.5,
 					height = 0.5,
 				},
 				prompts = {},

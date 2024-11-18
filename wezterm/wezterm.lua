@@ -8,7 +8,6 @@ config.window_padding = {
 	bottom = 0,
 }
 
-
 config.inactive_pane_hsb = {
   saturation = 0.9,
   brightness = 0.8,
@@ -21,9 +20,9 @@ config.background = {
 				path = "/Users/kyungsubkim/.config/wezterm/assets/bluegrad.jpg",
 			},
 		},
-		hsb = {brightness = 0.1},
-		height = "Cover",
-		width = "Cover",
+		hsb = {brightness = 0.06},
+		height = "Cover", -- required
+		width = "Cover", -- required
 		repeat_x = "NoRepeat",
 		repeat_y = "NoRepeat",
 		vertical_align = "Middle",
@@ -126,4 +125,25 @@ config.key_tables = {
 		{ key = "Escape", action = "PopKeyTable" },
 	},
 }
+
+
+config.color_scheme = 'rose-pine'
+
+
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+bar.apply_to_config(config, {
+	modules = {
+		spotify = {
+			enabled = false,
+		},
+	}
+})
+
+config.tab_bar_at_bottom = false
+config.show_new_tab_button_in_tab_bar = false
+------------
+-- TAB BAR
+---
+-- The filled in variant of the < symbol
+
 return config
