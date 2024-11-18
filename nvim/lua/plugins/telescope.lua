@@ -13,25 +13,31 @@ return {
 		-- Clone the default Telescope configuration
 		local vimgrep_arguments =
 			{ "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" }
-		--I want to search in hidden/dot files.
-		table.insert(vimgrep_arguments, "--hidden")
-		-- I don't want to search in the `.git` directory.
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/.git/*")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/node_modules/*")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/build/*")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/*.png")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/.gradle/**")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/.ccls-cache/**")
-		table.insert(vimgrep_arguments, "--glob")
-		table.insert(vimgrep_arguments, "!**/target/**")
+
+		local additional_args = {
+			"--hidden", -- Search in hidden/dot files
+			"--glob",
+			"!**/.git/*", -- Exclude `.git` directory
+			"--glob",
+			"!**/node_modules/*", -- Exclude `node_modules` directory
+			"--glob",
+			"!**/build/*", -- Exclude `build` directory
+			"--glob",
+			"!Flutter/**/ios/*", -- Exclude Flutter iOS directory
+			"--glob",
+			"!**/*.png", -- Exclude PNG files
+			"--glob",
+			"!**/.gradle/**", -- Exclude `.gradle` directory
+			"--glob",
+			"!**/.ccls-cache/**", -- Exclude `.ccls-cache` directory
+			"--glob",
+			"!**/target/**", -- Exclude `target` directory
+		}
+
+
+		for _, arg in ipairs(additional_args) do
+				table.insert(vimgrep_arguments, arg)
+		end
 
 		telescope.setup({
 			defaults = {
@@ -48,39 +54,39 @@ return {
 				},
 				find_files = {
 					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-					find_command = {
-						"rg",
-						"--files",
-						"--hidden",
-						"--glob",
-						"!**/node_modules/*",
-						"--glob",
-						"!**/.git/*",
-						"--glob",
-						"!**/ios/*",
-						"--glob",
-						"!**/build/*",
-						"--glob",
-						"!**/android/*",
-						"--glob",
-						"!**/macos/*",
-						"--glob",
-						"!**/web/*",
-						"--glob",
-						"!**/windows/*",
-						"--glob",
-						"!**/linux/*",
-						"--glob",
-						"!**/.dart_tool/*",
-						"--glob",
-						"!**/*.png",
-						"--glob",
-						"!**/.gradle/**",
-						"--glob",
-						"!**/.ccls-cache/**",
-						"--glob",
-						"!**/target/**",
-					},
+					find_command ={
+							"rg",
+							"--files",
+							"--hidden",
+							"--glob",
+							"!**/node_modules/*",
+							"--glob",
+							"!**/.git/*",
+							"--glob",
+							"!**/ios/*",
+							"--glob",
+							"!**/build/*",
+							"--glob",
+							"!**/android/*",
+							"--glob",
+							"!**/macos/*",
+							"--glob",
+							"!**/web/*",
+							"--glob",
+							"!**/windows/*",
+							"--glob",
+							"!**/linux/*",
+							"--glob",
+							"!**/.dart_tool/*",
+							"--glob",
+							"!**/*.png",
+							"--glob",
+							"!**/.gradle/**",
+							"--glob",
+							"!**/.ccls-cache/**",
+							"--glob",
+							"!**/target/**",
+						},
 				},
 				oldfiles = {},
 				live_grep = {
@@ -133,7 +139,7 @@ return {
 		keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 		keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
 		keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
-		keys.set("n", "<leader>lg", builtin.live_grep,{noremap = true})
+		keys.set("n", "<leader>lg", builtin.live_grep, { noremap = true })
 		keys.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>")
 	end,
 }

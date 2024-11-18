@@ -16,13 +16,27 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.opt.cmdheight = 0
+vim.api.nvim_create_autocmd(
+	{"CmdlineLeave"},
+	{
+		pattern = {"*"},
+		callback = function(ev) vim.opt.cmdheight = 0 end
+	}
+)
+vim.api.nvim_create_autocmd(
+	{"CmdlineEnter"},
+	{
+		pattern = {"*"},
+		callback = function(ev) vim.opt.cmdheight = 1 end
+	}
+)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
---vim.opt.rtp:append={"/usr/local/opt/fzf"}
+
 
 vim.opt.ignorecase=true
 vim.opt.termguicolors=true

@@ -37,7 +37,7 @@ return {
 						action = 'require("persistence").load()',
 					},
 					{
-						icon = '󰈙 ',
+						icon = '󰈙  ',
 						desc = 'Blog',
 						key = 'b',
 						key_format = ' [%s]',
