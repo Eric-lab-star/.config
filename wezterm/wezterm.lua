@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = {}
+config.default_cwd = "Users/kyungsubkim/Programming"
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left   = 0,
@@ -30,6 +31,8 @@ config.background = {
 	},
 }
 
+
+
 config.font_size = 15.0
 config.font = wezterm.font({
 	family = "D2Coding",
@@ -53,6 +56,8 @@ config.leader = {
 local act = wezterm.action
 
 config.keys = {
+	{ key = 'UpArrow', mods = 'SHIFT', action = act.ScrollByLine(-1) },
+	{ key = 'DownArrow', mods = 'SHIFT', action = act.ScrollByLine(1) },
 	{ key = "X", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
 	{
 		key = "K",
