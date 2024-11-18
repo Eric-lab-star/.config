@@ -11,8 +11,15 @@ return {
 		local actions = require("telescope.actions")
 
 		-- Clone the default Telescope configuration
-		local vimgrep_arguments =
-			{ "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" }
+		local vimgrep_arguments = {
+				"rg",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case"
+			}
 
 		local additional_args = {
 			"--hidden", -- Search in hidden/dot files
@@ -133,6 +140,7 @@ return {
 
 		local keys = vim.keymap
 		keys.set("n", "<leader>ff", builtin.find_files, {})
+		keys.set("n", "<leader>fb", builtin.buffers, {})
 		keys.set("n", "<leader>fg", builtin.live_grep, {})
 		keys.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
 		keys.set("n", "<leader>ma", builtin.marks, {}) -- list marks

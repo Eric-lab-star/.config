@@ -66,6 +66,29 @@ vim.keymap.set(
 	{ noremap = true, silent = true }
 )
 
+vim.keymap.set(
+	"n",
+	"<C-h>",
+	"<cmd>bp<cr>"
+)
+
+vim.keymap.set(
+	"n",
+	"<c-l>",
+	"<cmd>bn<cr>"
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>dd",
+	"<cmd>bd<cr>"
+)
+
+vim.keymap.set(
+	"n",
+	"<m-1>",
+	"<cmd>%bd|e#|bd#<cr>"
+)
 
 
 -- Setup lazy.nvim

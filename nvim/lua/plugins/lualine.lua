@@ -4,9 +4,10 @@ return {
 	},
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
-		'AndreM222/copilot-lualine',
+		'linrongbin16/lsp-progress.nvim',
 	},
 	config = function ()
+		require('lsp-progress').setup()
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -34,6 +35,11 @@ return {
 					{
 						'filename',
 						path = 1,
+					},
+					{
+						function()
+							return require('lsp-progress').progress()
+						end,
 					}
 				},
 

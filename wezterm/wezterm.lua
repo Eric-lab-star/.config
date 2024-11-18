@@ -1,6 +1,36 @@
 local wezterm = require("wezterm")
 local config = {}
 config.window_decorations = "RESIZE"
+config.window_padding = {
+	left   = 0,
+	right  = 0,
+	top    = 0,
+	bottom = 0,
+}
+
+
+config.inactive_pane_hsb = {
+  saturation = 0.9,
+  brightness = 0.8,
+}
+
+config.background = {
+	{
+		source = {
+			File = {
+				path = "/Users/kyungsubkim/.config/wezterm/assets/bluegrad.jpg",
+			},
+		},
+		hsb = {brightness = 0.1},
+		height = "Cover",
+		width = "Cover",
+		repeat_x = "NoRepeat",
+		repeat_y = "NoRepeat",
+		vertical_align = "Middle",
+		horizontal_align = "Center",
+	},
+}
+
 config.font_size = 12.5
 config.font = wezterm.font({
 	family = "JetBrains Mono",
@@ -20,15 +50,6 @@ config.leader = {
 	mods = "CTRL",
 }
 
-config.background = {
-	{
-		source = {
-			Gradient = {
-				preset = "Warm"
-			},
-		},
-	}
-}
 
 local act = wezterm.action
 
