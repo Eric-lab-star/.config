@@ -56,6 +56,7 @@ config.leader = {
 local act = wezterm.action
 
 config.keys = {
+	{ key = 'Enter', mods = 'CTRL', action = wezterm.action.TogglePaneZoomState},
 	{ key = 'UpArrow', mods = 'SHIFT', action = act.ScrollByLine(-1) },
 	{ key = 'DownArrow', mods = 'SHIFT', action = act.ScrollByLine(1) },
 	{ key = "X", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
