@@ -1,10 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
+
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"benfowler/telescope-luasnip.nvim",
 	},
+
 	config = function()
 		local builtin = require("telescope.builtin")
 		local telescope = require("telescope")
@@ -13,7 +15,9 @@ return {
 		-- Clone the default Telescope configuration
 		local vimgrep_arguments = {
 				"rg",
+
 				"--color=never",
+
 				"--no-heading",
 				"--with-filename",
 				"--line-number",
@@ -145,6 +149,7 @@ return {
 		keys.set("n", "<leader>fg", builtin.live_grep, {})
 		keys.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
 		keys.set("n", "<leader>ma", builtin.marks, {}) -- list marks
+		keys.set("n", "<leader>rr", builtin.registers, {}) -- list registers 
 		keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 		keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
 		keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })

@@ -54,12 +54,42 @@ config.leader = {
 
 
 local act = wezterm.action
+config.native_macos_fullscreen_mode = false
+
+-- Activate pane direction
+config.keys = {
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection 'Down',
+  },
+}
 
 config.keys = {
-	{ key = 'Enter', mods = 'CTRL', action = wezterm.action.TogglePaneZoomState},
+	{
+		key = 'f',
+		mods = 'CMD | CTRL',
+		action = wezterm.action.ToggleFullScreen,
+	},
+	{ key = 'Enter', mods = 'CTRL|SHIFT', action = wezterm.action.TogglePaneZoomState},
 	{ key = 'UpArrow', mods = 'SHIFT', action = act.ScrollByLine(-1) },
 	{ key = 'DownArrow', mods = 'SHIFT', action = act.ScrollByLine(1) },
-	{ key = "X", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
+	{ key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
 	{
 		key = "K",
 		mods = "CTRL|SHIFT",
@@ -117,8 +147,20 @@ config.key_tables = {
 	},
 	split_pane = {
 		{
+			key = "ㅍ",
+			action = act.SplitVertical({
+				domain = "CurrentPaneDomain"
+			})
+		},
+		{
 			key = "v",
 			action = act.SplitVertical({
+				domain = "CurrentPaneDomain"
+			})
+		},
+		{
+			key = "ㄴ",
+			action = act.SplitHorizontal({
 				domain = "CurrentPaneDomain"
 			})
 		},

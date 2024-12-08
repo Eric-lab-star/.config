@@ -1,5 +1,10 @@
 return {
 	"neovim/nvim-lspconfig",
+	opts = {
+		inlay_hints = {
+			enabled = true,
+		}
+	},
 	config = function()
 		local key = vim.keymap
 		local opt = { noremap = true }
@@ -25,9 +30,7 @@ return {
 				},
 			},
 		})
-		-- lspconfig.kotlin_language_server.setup({
-		-- 	capabilities = capabilities,
-		-- })
+
 		lspconfig.cmake.setup({})
 		lspconfig.ccls.setup({
 			init_options = {
@@ -53,6 +56,9 @@ return {
 			capabilities = capabilities,
 			settings = {
 				["rust-analyzer"] = {
+					diagnostics = {
+						enable = false,
+					},
 				},
 			},
 		})

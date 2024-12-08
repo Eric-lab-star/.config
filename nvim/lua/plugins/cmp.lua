@@ -15,6 +15,7 @@ return {
 		"luckasRanarison/tailwind-tools.nvim",
 		"zbirenbaum/copilot-cmp",
 	},
+
 	config = function()
 		require("copilot_cmp").setup()
 		local cmp = require("cmp")
@@ -24,6 +25,7 @@ return {
 				Copilot = "",
 			},
 		})
+
 		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#5abffa" })
 
 		cmp.setup({
