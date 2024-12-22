@@ -12,7 +12,6 @@ return {
 		"onsails/lspkind.nvim",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		"luckasRanarison/tailwind-tools.nvim",
 		"zbirenbaum/copilot-cmp",
 	},
 
@@ -35,7 +34,6 @@ return {
 					maxwidth = 15,
 					ellipsis_char = "...",
 					mode = "symbol",
-					before = require("tailwind-tools.cmp").lspkind_format,
 				}),
 			},
 			snippet = {
@@ -70,6 +68,7 @@ return {
 			},
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
+				{ name = "render-markdown", group_index = 2 },
 				{ name = "luasnip", group_index = 2 },
 				{ name = "nvim_lsp", group_index = 2 },
 				{ name = "nvim_lsp_signature_help", group_index = 2 },
@@ -100,13 +99,5 @@ return {
 			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
-		--- hide copilot suggestion when menu is opened
-		-- cmp.event:on("menu_opened", function()
-		-- 	vim.b.copilot_suggestion_hidden = true
-		-- end)
-		--
-		-- cmp.event:on("menu_closed", function()
-		-- 	vim.b.copilot_suggestion_hidden = false
-		-- end)
 	end,
 }

@@ -44,14 +44,6 @@ return {
 			},
 		})
 
-		lspconfig.tailwindcss.setup({
-			capabilities = capabilities,
-		})
-
-		lspconfig.gdscript.setup({
-			capabilities = capabilities,
-		})
-
 		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 			settings = {
@@ -69,17 +61,13 @@ return {
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.gradle_ls.setup({
-			capabilities = capabilities,
-			cmd = {
-				"gradle-language-server",
-			},
-		})
+
 		lspconfig.lua_ls.setup({
 			on_init = function(client)
 				if client.workspace_folders then
 					local path = client.workspace_folders[1].name
-					if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+					if vim.loop.fs_stat(path .. "/.luarc.json") or 
+						vim.loop.fs_stat(path .. "/.luarc.jsonc") then
 						return
 					end
 				end
@@ -108,9 +96,5 @@ return {
 				Lua = {},
 			},
 		})
-
-		vim.g.dart_format_on_save = true
-		vim.g.dart_html_in_string = true
-		vim.g.dart_style_guide = 2
 	end,
 }
